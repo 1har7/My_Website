@@ -47,18 +47,24 @@ nav ul li a:hover {
   background-color: #a5b4fc;
 }
 
-/* Navbar Adjustments for small screens */
- @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   nav {
-    padding: 0.5rem 0; /* Reduced padding */
+    padding: 0.5rem 0;
+  }
+
+  nav ul {
+    flex-wrap: wrap; /* Important: allow items to wrap to next line */
+  }
+
+  nav ul li {
+    margin: 0.5rem 0.5rem; /* smaller margins for mobile */
   }
 
   nav ul li a {
-    font-size: 1rem; /* Smaller font size */
-    padding: 0.3rem 0.8rem; /* Reduced padding for links */
+    font-size: 0.9rem; /* smaller font size */
+    padding: 0.3rem 0.6rem; /* tighter padding */
   }
 }
-
 /* Hero Image Adjustments for small screens */
 @media screen and (max-width: 768px) {
   .hero img {
