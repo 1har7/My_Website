@@ -65,6 +65,72 @@ nav ul li a:hover {
     padding: 0.3rem 0.6rem; /* tighter padding */
   }
 }
+.theme-toggle {
+  position: fixed;
+  top: 80px; /* Below navbar */
+  left: 20px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1001;
+}
+
+.theme-toggle:hover {
+  background-color: #e0e7ff;
+}
+
+body.dark-mode {
+  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  color: #f1f5f9;
+}
+
+body.dark-mode nav {
+  background-color: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+body.dark-mode .about,
+body.dark-mode .contact {
+  background-color: #334155;
+}
+
+body.dark-mode .card::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .button {
+  background-color: #475569;
+  color: #f8fafc;
+}
+
+body.dark-mode .skills {
+  color: #f8fafc;
+}
+
+body.dark-mode .progress {
+  background-color: #64748b;
+}
+
+body.dark-mode .progress-bar {
+  background-color: #60a5fa;
+}
+
+body.dark-mode .about p {
+  color: #f1f5f9;
+}
+
+body.dark-mode h2,
+body.dark-mode h1,
+body.dark-mode .subtitle {
+  color: #f8fafc;
+}
+
+
 /* Hero Image Adjustments for small screens */
 @media screen and (max-width: 768px) {
   .hero img {
@@ -87,6 +153,14 @@ nav ul li a:hover {
 
   .hero-text .subtitle {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about p {
+    font-size: 1rem;
+    padding: 0 1rem;
+    text-align: justify;
   }
 }
 
@@ -396,6 +470,7 @@ body {
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+<button id="theme-toggle" class="theme-toggle">🌙</button>
 
 
   <section id="home" class="hero">
@@ -515,6 +590,16 @@ body {
 
   window.addEventListener('scroll', animateSkills);
 </script>
+
+<script>
+  const toggleBtn = document.getElementById('theme-toggle');
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+</script>
+
 
 </body>
 </html>
